@@ -1,0 +1,14 @@
+trong thư mục routes, file web.php dùng để định nghĩa url
+đuôi file view sẽ có thêm .blade để hỗ trợ gọi file nhanh hơn
+ví dụ: welcome.blade.php
+cú pháp php sẽ chỉ cần là @... ví dụ như @if, @for, @foreach,..., và @endif, @endfor, @endforeach,...
+echo sẽ đổi thành {{}}
+ví dụ: {{'<h1> alo 1 2 3 4 </h1>'}}
+echo này chống được cách thức tấn công xss
+loại này dùng để cho user comment vào bài viết
+loại 2: {!!...!!}
+ví dụ: {!!'<h1>sdasdsad</h1>'!!}
+loại này dùng để cho admin đăng bài viết
+
+Làm database trước xong mới làm frontend rồi đến backend
+tuy nhiên với người không có kinh nghiệm thì làm frontend trước rồi mới làm database xong làm backend
