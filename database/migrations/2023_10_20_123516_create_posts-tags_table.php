@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('post-tag', function (Blueprint $table) {
+        Schema::create('postTag', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('status')->default(1);
             $table->bigInteger('createBy');

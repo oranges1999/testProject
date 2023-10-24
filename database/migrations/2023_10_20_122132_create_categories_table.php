@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug'); // dùng để đơn giản hóa đường link web
             $table->string('imageUrl');
             $table->bigInteger('createdBy');
+            $table->smallInteger('status');
             $table->timestamps();
         });
     }
