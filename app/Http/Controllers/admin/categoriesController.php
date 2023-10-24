@@ -25,7 +25,7 @@ class categoriesController extends Controller
 
         DB::table('categories')->insert($category);
 
-        return redirect()->to('/admin/categories');
+        return redirect()->to('/admin/category');
     }
 
     public function index()

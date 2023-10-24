@@ -28,6 +28,6 @@ Route::get('/admin', function () {
     return view('admin.app');
 });
 
-Route::get('/admin/categories/create',function(){
-    return view('admin.categories.create');
-});
+Route::get('/admin/category/create', 'admin\categoriesController@create');
+Route::post('/admin/category/create', 'admin\categoriesController@store');
+Route::get('/admin/category', 'admin\categoriesController@index');
