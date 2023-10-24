@@ -1,8 +1,8 @@
 @extends('admin.app')
 
-@section( 'content')
+@section('content')
 
-<form action="/admin/category/create" method="POST" enctype="multipart/form-data">
+<form action="/admin/categories" method="POST" enctype="multipart/form-data">
   @csrf
     <div class="form-group">
       <label for="exampleInputEmail1">name</label>

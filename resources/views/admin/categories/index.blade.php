@@ -1,35 +1,29 @@
 @extends('admin.app')
 
 @section('content')
-
+  <a href="/admin/categories/create"><button>Create a category</button></a>
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Index</th>
+        <th scope="col">Name</th>
+        <th scope="col">Image</th>
+        <th scope="col">Status</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Updated At</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
+        @foreach ($categories as $category)
+            <tr>
+              <td>{{$category->id}}</td>
+              <td>{{$category->name}}</td>
+              <td>{{$category->imageUrl}}</td>
+              <td>{{$category->status}}</td>
+              <td>{{$category->created_at}}</td>
+              <td>{{$category->updated_at}}</td>
+            </tr>
+        @endforeach
     </tbody>
   </table>
 @endsection

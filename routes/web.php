@@ -25,9 +25,14 @@ Route::get('/', function () {
 // Comment: Bình luận người dùng
 
 Route::get('/admin', function () {
-    return view('admin.app');
+    return view('admin.home');
 });
 
-Route::get('/admin/category/create', 'admin\categoriesController@create');
-Route::post('/admin/category/create', 'admin\categoriesController@store');
-Route::get('/admin/category', 'admin\categoriesController@index');
+Route::resource('/admin/categories', 'admin\categoriesController')->only([
+    'index','store','create'
+]);
+
+Route::resource('/admin/posts', 'admin\postsController')->only([
+    'index','store','create'
+]);
+

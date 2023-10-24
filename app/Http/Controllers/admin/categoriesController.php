@@ -9,11 +9,26 @@ use \DB;
 
 class categoriesController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {   
+        $categories = DB::table('categories')->get();
+        return view('admin.categories.index', ['categories'=> $categories]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
     public function create()
     {
         return view("admin.categories.create");
     }
-    
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $category['name'] = $request->name;
@@ -26,20 +41,43 @@ class categoriesController extends Controller
 
         DB::table('categories')->insert($category);
 
-        return redirect()->to('/admin/category');
+        return redirect()->to('/admin/categories');
     }
 
-    public function index()
-    {
-        return view('admin.categories.index');
-    }
+    /**
+     * Display the specified resource.
+     */
+    // public function show(string $id)
+    // {
+    //     //
+    // }
+
+    // /**
+    //  * Show the form for editing the specified resource.
+    //  */
+    // public function edit(string $id)
+    // {
+    //     //
+    // }
+
+    // /**
+    //  * Update the specified resource in storage.
+    //  */
+    // public function update(Request $request, string $id)
+    // {
+    //     //
+    // }
+
+    // /**
+    //  * Remove the specified resource from storage.
+    //  */
+    // public function destroy(string $id)
+    // {
+    //     //
+    // }
 }
 
-// Bài Tập:
-// Tạo Admin
-// Tạo Post
-// Tạo Tag
-// Tìm hiểu cách hiển thị dữ liệu ra
-// DB::table(name)->get() => Lấy data
-// gợi ý Truyền data sang view index
-// foreach để hiển thị
+
+    
+    
+
