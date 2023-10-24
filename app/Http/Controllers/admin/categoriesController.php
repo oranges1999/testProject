@@ -22,6 +22,7 @@ class categoriesController extends Controller
         $category['createdBy'] = '1';
         $category['imageUrl'] = 'abc.png';
         $category['slug'] = Str::slug($request->name);
+        $category['status'] = $request->status;
 
         DB::table('categories')->insert($category);
 

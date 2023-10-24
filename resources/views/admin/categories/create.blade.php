@@ -15,9 +15,8 @@
       <div class="form-group">
         <label for="status">status</label>
         <select name="status" id="status" class="form-control">
-          <option value="">khong hien thi</option>
-          <option value="">hien thi</option>
-
+          <option value="0">khong hien thi</option>
+          <option value="1">hien thi</option>
         </select>
       </div>
         <button type="submit" class="btn btn-primary">Submit</button>
