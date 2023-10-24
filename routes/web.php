@@ -36,3 +36,7 @@ Route::resource('/admin/posts', 'admin\postsController')->only([
     'index','store','create'
 ]);
 
+Route::resource('/admin/tags', 'admin\tagsController')->only([
+    'index','store','create'
+]);
+
