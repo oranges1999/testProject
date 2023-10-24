@@ -44,21 +44,27 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="/admin/posts" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Go to posts</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a href="/admin/categories" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
+                  <p>Go to categories</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="/admin/tags?name=tags" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Go to tags</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="/admin/users" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Go to users</p>
                 </a>
               </li>
             </ul>

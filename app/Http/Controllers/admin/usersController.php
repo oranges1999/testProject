@@ -6,15 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-class tagsController extends Controller
+
+
+class usersController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $tags = DB::table('tags')->get();
-        return view('admin.tags.index', ['tags'=> $tags]);
+        $users = DB::table('users')->get();
+        return view('admin.users.index', ['users'=> $users]);
     }
 
     /**

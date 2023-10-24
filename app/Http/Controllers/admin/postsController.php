@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use \Str;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
 class postsController extends Controller
@@ -33,7 +33,7 @@ class postsController extends Controller
     {
         $post['categoryId'] = $request->categoryId;
         $post['title'] = $request->name;
-        $$post['slug'] = Str::slug($request->name);
+        $post['slug'] = Str::slug($request->name);
         $post['imageUrl'] = 'abc.png';
         $post['content'] = $request->content;
         $post['createdBy'] = '1';

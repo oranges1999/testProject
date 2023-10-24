@@ -25,7 +25,7 @@ Route::get('/', function () {
 // Comment: Bình luận người dùng
 
 Route::get('/admin', function () {
-    return view('admin.home');
+    return view('admin.app');
 });
 
 Route::resource('/admin/categories', 'admin\categoriesController')->only([
@@ -33,10 +33,14 @@ Route::resource('/admin/categories', 'admin\categoriesController')->only([
 ]);
 
 Route::resource('/admin/posts', 'admin\postsController')->only([
-    'index','store','create'
+    'index'
 ]);
 
 Route::resource('/admin/tags', 'admin\tagsController')->only([
     'index','store','create'
+]);
+
+Route::resource('/admin/users', 'admin\usersController')->only([
+    'index'
 ]);
 
