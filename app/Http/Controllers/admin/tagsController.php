@@ -39,7 +39,7 @@ class tagsController extends Controller
 
         DB::table('tags')->insert($Tags);
 
-        return redirect()->to('/admin/tags');
+        return redirect()->route('tags.index');
     }
 
     /**
@@ -83,6 +83,6 @@ class tagsController extends Controller
     public function destroy($id)
     {
         DB::table('tags')->where('id','=', $id)->delete();
-        return redirect()->to('/admin/tags');
+        return redirect()->route('tags.index');
     }
 }

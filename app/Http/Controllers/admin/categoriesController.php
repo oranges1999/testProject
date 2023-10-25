@@ -92,8 +92,3 @@ class categoriesController extends Controller
         return redirect()->to('/admin/categories');
     }
 }
-
-
-    
-    
-

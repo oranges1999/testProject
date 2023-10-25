@@ -3,7 +3,7 @@
 @section('content')
 
 <form action="/admin/tags/{{$tags->id}}" method="POST">
-  @method('put')
+  @method('PUT')
   @csrf
     <div class="form-group">
       <label for="exampleInputEmail1">name</label>

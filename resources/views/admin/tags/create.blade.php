@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="/admin/tags" method="POST">
+<form action="{{route('tags.index')}}" method="POST">
   @csrf
     <div class="form-group">
       <label for="exampleInputEmail1">name</label>
