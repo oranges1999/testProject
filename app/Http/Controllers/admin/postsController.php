@@ -14,7 +14,10 @@ class postsController extends Controller
      */
     public function index()
     {
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')
+                ->join('categories','posts.categoryId','=','categories.id')
+                ->select('posts.*','categories.name as category_name')
+                ->get();
         return view('admin.posts.index', ['posts'=> $posts]);
     }
 

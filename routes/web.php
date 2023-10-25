@@ -29,7 +29,7 @@ Route::get('/admin', function () {
 });
 
 Route::resource('/admin/categories', 'admin\categoriesController')->only([
-    'index','store','create'
+    'index','store','create','destroy'
 ]);
 
 Route::resource('/admin/posts', 'admin\postsController')->only([

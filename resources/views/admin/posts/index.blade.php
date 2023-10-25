@@ -20,7 +20,7 @@
         @foreach ($posts as $post)
             <tr>
             <td>{{$post->id}}</td>
-            <td>{{$post->categoryId}}</td>
+            <td>{{$post->category_name}}</td>
             <td>{{$post->title}}</td>
             <td>{{$post->imageUrl}}</td>
             <td>{{$post->content}}</td>

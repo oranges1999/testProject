@@ -11,6 +11,7 @@
         <th scope="col">Status</th>
         <th scope="col">Created At</th>
         <th scope="col">Updated At</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
               <td>{{$category->status}}</td>
               <td>{{$category->created_at}}</td>
               <td>{{$category->updated_at}}</td>
+              <td><a href=""><button>Delete</button></a></td>
             </tr>
         @endforeach
     </tbody>
