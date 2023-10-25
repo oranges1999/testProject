@@ -1,7 +1,7 @@
 @extends('admin.app')
 
 @section('content')
-  <a href="/admin/categories/create"><button>Create a category</button></a>
+  <a href="/admin/categories/create"><button class="btn btn-primary">Create a category</button></a>
 <table class="table">
     <thead>
       <tr>
@@ -15,15 +15,24 @@
       </tr>
     </thead>
     <tbody>
-        @foreach ($categories as $category)
+        @foreach ($categories as $key => $category)
             <tr>
-              <td>{{$category->id}}</td>
+              <td>{{++$key}}</td>
               <td>{{$category->name}}</td>
-              <td>{{$category->imageUrl}}</td>
+              <td><img src="{{$category->imageUrl}}" alt=""></td>
               <td>{{$category->status}}</td>
               <td>{{$category->created_at}}</td>
               <td>{{$category->updated_at}}</td>
-              <td><a href=""><button>Delete</button></a></td>
+              <td>
+                <div class="d-flex">
+                  <form action="/admin/categories/{{$category->id}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                  <a href="/admin/categories/{{$category->id}}/edit"><button class="btn btn-warning">Changes</button></a>
+                </div>
+              </td>
             </tr>
         @endforeach
     </tbody>

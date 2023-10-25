@@ -1,6 +1,7 @@
 @extends('admin.app')
 
 @section('content')
+@dd($posts)
 <table class="table">
     <thead>
     <tr>

@@ -14,7 +14,7 @@ class tagsController extends Controller
     public function index()
     {
         $tags = DB::table('tags')->get();
-        return view('admin.tags.index', ['tags'=> $tags]);
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
@@ -45,32 +45,44 @@ class tagsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
-    }
+    // public function show(string $id)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $tags = DB::table('tags')->where('id','=', $id)->first(); // có thể dùng find, nhưng find chỉ tìm theo 1 trường nhất định, muốn chính xác hơn phải dùng where
+        // dd($category); //std class
+        return view ('admin.tags.edit', compact('tags'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
-        //
+        $Tags['status'] = $request->status;
+        $Tags['createBy'] = '1';
+        $Tags['slug'] = Str::slug($request->name);
+        $Tags['name'] = $request->name;
+        $Tags['created_at'] = now();
+        $Tags['updated_at'] = now();
+
+        DB::table('tags')->where('id','=', $id)->update($Tags);
+
+        return redirect()->to('/admin/tags');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        DB::table('tags')->where('id','=', $id)->delete();
+        return redirect()->to('/admin/tags');
     }
 }

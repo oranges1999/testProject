@@ -14,8 +14,8 @@ class categoriesController extends Controller
      */
     public function index()
     {   
-        $categories = DB::table('categories')->get();
-        return view('admin.categories.index', ['categories'=> $categories]);
+        $categories = DB::table('categories')->get(); // Biến collection
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
@@ -55,26 +55,42 @@ class categoriesController extends Controller
     // /**
     //  * Show the form for editing the specified resource.
     //  */
-    // public function edit(string $id)
-    // {
-    //     //
-    // }
+    public function edit($id)
+    {
+        $category = DB::table('categories')->where('id','=', $id)->first(); // có thể dùng find, nhưng find chỉ tìm theo 1 trường nhất định, muốn chính xác hơn phải dùng where
+        // dd($category); //std class
+        return view ('admin.categories.edit', compact('category'));
+    }
 
     // /**
     //  * Update the specified resource in storage.
     //  */
-    // public function update(Request $request, string $id)
-    // {
-    //     //
-    // }
+    public function update(Request $request, $id)
+    {
+
+
+        $category['name'] = $request->name;
+        // $category['created_at'] = now();
+        $category['updated_at'] = now();
+        $category['createdBy'] = '1';
+        $category['imageUrl'] = 'abc.png';
+        $category['slug'] = Str::slug($request->name);
+        $category['status'] = $request->status;
+
+        DB::table('categories')->where('id','=', $id)->update($category);
+
+        return redirect()->to('/admin/categories');
+
+    }
 
     // /**
     //  * Remove the specified resource from storage.
     //  */
-    // public function destroy(string $id)
-    // {
-    //     //
-    // }
+    public function destroy(string $id)
+    {
+        DB::table('categories')->where('id','=', $id)->delete();
+        return redirect()->to('/admin/categories');
+    }
 }
 
 

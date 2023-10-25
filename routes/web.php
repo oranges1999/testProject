@@ -28,19 +28,9 @@ Route::get('/admin', function () {
     return view('admin.app');
 });
 
-Route::resource('/admin/categories', 'admin\categoriesController')->only([
-    'index','store','create','destroy'
-]);
-
-Route::resource('/admin/posts', 'admin\postsController')->only([
-    'index'
-]);
-
-Route::resource('/admin/tags', 'admin\tagsController')->only([
-    'index','store','create'
-]);
-
-Route::resource('/admin/users', 'admin\usersController')->only([
-    'index'
-]);
-
+Route::group(['prefix'=> '/admin/', 'namespace'=>'admin'], function () {
+    Route::resource('categories', 'categoriesController');
+    Route::resource('posts', 'postsController');
+    Route::resource('tags', 'tagsController');
+    Route::resource('users', 'usersController');
+});
