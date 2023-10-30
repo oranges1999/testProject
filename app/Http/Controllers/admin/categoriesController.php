@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class categoriesController extends Controller
      */
     public function index()
     {   
-        $categories = DB::table('categories')->get(); // Biến collection
+        $categories = Category::orderBy('id','DESC')->paginate(20);
         return view('admin.categories.index', compact('categories'));
     }
 

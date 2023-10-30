@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.app');
 });
 
 // Admin: Bảng quản trị viên
@@ -33,4 +33,5 @@ Route::group(['prefix'=> '/admin/', 'namespace'=>'admin'], function () {
     Route::resource('posts', 'postsController');
     Route::resource('tags', 'tagsController');
     Route::resource('users', 'usersController');
+    Route::resource('admin','adminController');
 });

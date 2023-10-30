@@ -9,6 +9,7 @@
         <th scope="col">Name</th>
         <th scope="col">Image</th>
         <th scope="col">Status</th>
+        <th scope="col">Created By</th>
         <th scope="col">Created At</th>
         <th scope="col">Updated At</th>
         <th scope="col">Actions</th>
@@ -21,6 +22,7 @@
               <td>{{$category->name}}</td>
               <td><img src="{{$category->imageUrl}}" alt=""></td>
               <td>{{$category->status}}</td>
+              <td>{{$category->admin->name}}</td>
               <td>{{$category->created_at}}</td>
               <td>{{$category->updated_at}}</td>
               <td>
