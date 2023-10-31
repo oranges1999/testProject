@@ -17,7 +17,7 @@
         @foreach ($admins as $key => $value)
             <tr>
             <td>{{++$key}}</td>
-            <td><img src="{{asset('storage/'.$value->avatar)}}" alt=""></td>
+            <td><img height="100px" src="{{asset(str_replace("public","storage",$value->avatar))}}" alt=""></td>
             <td>{{$value->name}}</td>
             <td>{{$value->email}}</td>
             <td>{{$value->created_at}}</td>

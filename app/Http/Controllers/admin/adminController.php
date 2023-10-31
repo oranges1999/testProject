@@ -37,6 +37,10 @@ class adminController extends Controller
         if($request->hasFile('avatar')){
             $path = $request->file('avatar')->store('public');
             $admin['avatar'] = $path;
+            // $image = $request->file('avatar'); //lay anh
+            // $originalName = $image->getClientOriginalName(); //lay ten anh
+            // $image->storeAs('public/images', $originalName); // luu anh vao thu muc public/images
+            // $admin['avatar'] = '/images/'.$originalName;
         }
 
         // dd($adm
@@ -67,19 +71,20 @@ class adminController extends Controller
     {
         $dataAdmin = $request->only('name','email');
         if($request->password){
-            $admin['password'] = hash::make($request->password);
+            $dataAdmin['password'] = hash::make($request->password);
         }
         if($request->hasFile('avatar')){
             $path = $request->file('avatar')->store('public');
-            $admin['avatar'] = $path;
+            $dataAdmin['avatar'] = $path;
 
             $file = $admin->avatar;
-
+            
             if ($admin->avatar && Storage::exists($file)) {
                 Storage::delete($file);
             }
 
         }
+
         if(! $admin->update($dataAdmin)){
             return redirect()->route('admin.index')->with('error','sua khong thanh cong');
         };
